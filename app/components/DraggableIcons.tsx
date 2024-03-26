@@ -16,15 +16,12 @@ import {
 import { Language } from "../modules/types";
 
 export default function DraggableIcons() {
-  // FIXME: 포스트잇 닫을 때 아이콘 초기화되는 문제 해결
   const language = useAtomValue(languageAtom);
   const setShowImage = useSetAtom(showImageAtom);
   const setImgSrc = useSetAtom(imgSrcAtom);
   const setImgAlt = useSetAtom(imgAltAtom);
 
   return (
-    // TODO: 코드 정리하고 관련 개념 기록해두기
-    // 문제 해결 경험 중심으로 블로그에 작성하기 (모든 걸 다 x)
     <MemoizedIcons
       setImgSrc={setImgSrc}
       setImgAlt={setImgAlt}
@@ -57,8 +54,6 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
     alert(fortune[language][Math.floor(Math.random() * fortune[language].length)]);
   };
 
-  // TODO: 별개 컴포넌트 파일로 빼기
-  // TODO: 인터페이스, 타입 리팩토링
   function DraggableIcon(props: {
     className: string;
     path: string;
@@ -135,7 +130,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
       />
       <DraggableIcon
         className="icon-music"
-        path="/music"
+        path="https://music.divdivdiv.com"
         type="folder"
         title={iconTitle.music}
         width={iconSize.folder.width}
@@ -151,7 +146,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
       />
       <DraggableIcon
         className="icon-cinephile"
-        path="/cinephile"
+        path="https://cinephile.divdivdiv.com"
         type="folder"
         title={iconTitle.cinephile}
         width={iconSize.folder.width}
@@ -159,7 +154,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
       />
       <DraggableIcon
         className="icon-fruits"
-        path="/fruits"
+        path="https://fruits.divdivdiv.com"
         type="folder"
         title={iconTitle.fruits}
         width={iconSize.folder.width}
@@ -167,7 +162,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
       />
       <DraggableIcon
         className="icon-words"
-        path="/words"
+        path="https://words.divdivdiv.com"
         type="folder"
         title={iconTitle.words}
         width={iconSize.folder.width}
@@ -215,7 +210,4 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
   );
 }
 
-// useMemo와 memo의 차이점
-// useMemo는 훅. 컴포넌트 내에서 useMemo를 해서 특정 값을 저장해두었다가 반복되면 다시 계산하지 않는다.
-// memo는 훅이 아님. memo는 컴포넌트를 컴포넌트로 바꿔준다(감싸준다). props의 값이 바뀌지 않으면 렌더링을 발생시키지 않는다.
 const MemoizedIcons = memo(Icons);

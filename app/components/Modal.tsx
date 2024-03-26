@@ -79,11 +79,11 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
       <div className={styles["modal"]} style={{ width: width, height: height }}>
         <div className={styles["last-updated"]}>{readme.lastUpdated.text[language]}</div>
         <ReadmeComponent path="https://blog.divdivdiv.com" icon={readme.blog} />
-        <ReadmeComponent path="/music" icon={readme.music} />
-        <ReadmeComponent path="/barbershop" icon={readme.barbershop} />
-        <ReadmeComponent path="/cinephile" icon={readme.cinephile} />
-        <ReadmeComponent path="/fruits" icon={readme.fruits} />
-        <ReadmeComponent path="/words" icon={readme.words} />
+        <ReadmeComponent path="https://music.divdivdiv.com" icon={readme.music} />
+        <ReadmeComponent path="https://barbershop.divdivdiv.com" icon={readme.barbershop} />
+        <ReadmeComponent path="https://cinephile.divdivdiv.com" icon={readme.cinephile} />
+        <ReadmeComponent path="https://fruits.divdivdiv.com" icon={readme.fruits} />
+        <ReadmeComponent path="https://words.divdivdiv.com" icon={readme.words} />
         <ReadmeComponent path="/" icon={readme.techStack} />
       </div>
     </div>
