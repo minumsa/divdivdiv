@@ -1,13 +1,13 @@
-import { useAtom } from "jotai";
-import { languageAtom, showImageAtom } from "../modules/data";
+import { useAtomValue, useSetAtom } from "jotai";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { Nav } from "./Nav";
 import styles from "../divdivdiv.module.css";
+import { languageAtom, showImageAtom } from "../modules/atoms";
 
 export const FunctionalLayout = ({ children }: { children: React.ReactNode }) => {
-  const [showImage, setShowImage] = useAtom(showImageAtom);
-  const [language, setLanguage] = useAtom(languageAtom);
+  const showImage = useAtomValue(showImageAtom);
+  const setLanguage = useSetAtom(languageAtom);
   const searchParams = useSearchParams();
   const currentLanguage: any = searchParams.get("language");
 

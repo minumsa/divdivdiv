@@ -1,11 +1,11 @@
 "use client";
 
 import styles from "../divdivdiv.module.css";
-import { useAtom } from "jotai";
-import { languageAtom } from "../modules/data";
+import { useAtomValue } from "jotai";
+import { languageAtom } from "../modules/atoms";
 
 export default function Contact() {
-  const [language, setLanguage] = useAtom(languageAtom);
+  const language = useAtomValue(languageAtom);
 
   return (
     <div className={styles["contact-container"]}>

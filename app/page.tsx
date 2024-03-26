@@ -1,10 +1,10 @@
 "use client";
 
-import { imgAltAtom, imgSrcAtom, showImageAtom } from "./modules/data";
 import DraggableIcons from "./components/DraggableIcons";
 import { ImageModal } from "./components/Modal";
 import { useAtom } from "jotai";
 import { FunctionalLayout } from "./components/FunctionalLayout";
+import { imgAltAtom, imgSrcAtom, showImageAtom } from "./modules/atoms";
 
 export default function Page() {
   const [showImage, setShowImage] = useAtom(showImageAtom);

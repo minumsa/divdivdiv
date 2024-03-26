@@ -1,14 +1,14 @@
 import { RenderButtonLeft } from "./RenderButtonLeft";
 import styles from "../divdivdiv.module.css";
-import { languageAtom } from "../modules/data";
 import { CurrentWeather } from "./Weather";
 import { LanguageToggleButton } from "./LanguageToggleButton";
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import { Calender } from "./Calender";
 import Clock from "./Clock";
+import { languageAtom } from "../modules/atoms";
 
 export const Nav = () => {
-  const [language, setLanguage] = useAtom(languageAtom);
+  const language = useAtomValue(languageAtom);
 
   return (
     <div className={styles["nav"]}>

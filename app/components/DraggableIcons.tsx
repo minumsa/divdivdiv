@@ -3,25 +3,18 @@
 import React, { memo } from "react";
 import Draggable from "react-draggable";
 import styles from "../divdivdiv.module.css";
-import {
-  Language,
-  fortune,
-  iconSize,
-  iconTitle,
-  imgAltAtom,
-  imgSrcAtom,
-  showImageAtom,
-  languageAtom,
-} from "../modules/data";
-import { useAtom } from "jotai";
+import { fortune, iconSize, iconTitle } from "../modules/icons";
+import { useAtomValue, useSetAtom } from "jotai";
 import { isMobile } from "react-device-detect";
+import { imgAltAtom, imgSrcAtom, languageAtom, showImageAtom } from "../modules/atoms";
+import { Language } from "../modules/types";
 
 export default function DraggableIcons() {
   // FIXME: 포스트잇 닫을 때 아이콘 초기화되는 문제 해결
-  const [language, setLanguage] = useAtom(languageAtom);
-  const [showImage, setShowImage] = useAtom(showImageAtom);
-  const [imgSrc, setImgSrc] = useAtom<string>(imgSrcAtom);
-  const [imgAlt, setImgAlt] = useAtom<string>(imgAltAtom);
+  const language = useAtomValue(languageAtom);
+  const setShowImage = useSetAtom(showImageAtom);
+  const setImgSrc = useSetAtom(imgSrcAtom);
+  const setImgAlt = useSetAtom(imgAltAtom);
 
   return (
     // TODO: 코드 정리하고 관련 개념 기록해두기

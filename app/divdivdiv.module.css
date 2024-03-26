@@ -1,56 +1,11 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
-
-@font-face {
-  font-family: "Karla";
-  src: url("/fonts/Karla-ExtraLight.ttf");
-  font-style: normal;
-  font-weight: 300;
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
-@font-face {
-  font-family: "Karla";
-  src: url("/fonts/Karla-Light.ttf");
-  font-style: normal;
-  font-weight: 300;
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
-@font-face {
-  font-family: "Karla";
-  src: url("/fonts/Karla-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
-@font-face {
-  font-family: "Karla";
-  src: url("/fonts/Karla-Medium.ttf");
-  font-style: normal;
-  font-weight: 500;
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
-@font-face {
-  font-family: "Karla";
-  src: url("/fonts/Karla-SemiBold.ttf");
-  font-style: normal;
-  font-weight: 600;
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
 .container-background {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #000000;
-  width: 100vw;
-  height: 100vh;
-  font-family: "Karla", "Pretendard Variable", "Pretendard", "-apple-system", "BlinkMacSystemFont",
-    system-ui, "Roboto", "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  width: 100%;
+  height: 100%;
   font-weight: 400;
 }
 
@@ -66,11 +21,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  border: 8px solid #000;
   background-color: #ffffff;
   width: 100%;
   height: 100%;
   color: rgb(30, 30, 30);
+  /* border: 8px solid #000; */
 }
 
 .icon {
@@ -497,7 +452,7 @@
 
 @media (max-width: 499px) {
   .container {
-    border: 3.5px solid #000;
+    /* border: 3.5px solid #000; */
   }
 
   .icon-title {

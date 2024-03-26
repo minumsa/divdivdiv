@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../divdivdiv.module.css";
-import { languageAtom, readme } from "../modules/data";
-import { useAtom } from "jotai";
+import { readme } from "../modules/icons";
+import { useAtomValue } from "jotai";
 import { isMobile } from "react-device-detect";
+import { languageAtom } from "../modules/atoms";
 
 interface ImageModalProps {
   src: string;
@@ -11,7 +12,7 @@ interface ImageModalProps {
 }
 
 export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
-  const [language, setLanguage] = useAtom(languageAtom);
+  const language = useAtomValue(languageAtom);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight);
 

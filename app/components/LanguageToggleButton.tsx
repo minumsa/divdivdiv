@@ -1,17 +1,13 @@
 import { useAtom } from "jotai";
 import styles from "../divdivdiv.module.css";
-import { languageAtom } from "../modules/data";
-import { usePathname, useRouter } from "next/navigation";
+import { languageAtom } from "../modules/atoms";
 
 export const LanguageToggleButton = () => {
   const [language, setLanguage] = useAtom(languageAtom);
-  const router = useRouter();
-  const path = usePathname();
 
   const toggleLanguage = () => {
     const newLanguage = language === "en" ? "ko" : "en";
     setLanguage(newLanguage);
-    // router.push(`${path}?language=${newLanguage}`);
   };
 
   return (

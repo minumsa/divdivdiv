@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Language, postit } from "../modules/data";
+import { postit } from "../modules/icons";
 import styles from "../divdivdiv.module.css";
+import { Language } from "../modules/types";
 
 interface PostIt {
   language: Language;

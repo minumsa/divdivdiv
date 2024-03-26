@@ -1,11 +1,11 @@
 "use client";
 
-import { useAtom } from "jotai";
-import { languageAtom } from "../modules/data";
+import { useAtomValue } from "jotai";
 import styles from "../divdivdiv.module.css";
+import { languageAtom } from "../modules/atoms";
 
 export default function About() {
-  const [language, setLanguage] = useAtom(languageAtom);
+  const language = useAtomValue(languageAtom);
 
   interface About {
     job: Record<any, string>;
