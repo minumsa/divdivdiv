@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "../divdivdiv.module.css";
-import { readme } from "../modules/icons";
+import { readme } from "../modules/iconsData";
 import { useAtomValue } from "jotai";
 import { isMobile } from "react-device-detect";
-import { languageAtom } from "../modules/atoms";
+import { blurHashAtom, languageAtom } from "../modules/atoms";
+import { BlurImg } from "./BlurImg";
 
 interface ImageModalProps {
   src: string;
@@ -15,6 +16,7 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
   const language = useAtomValue(languageAtom);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight);
+  const blurHash = useAtomValue(blurHashAtom);
 
   // FIXME: Main 이 Desktop 이랑 ModalContainer를 가지고 있어서
   // Modal의 상태 변화가 Desktop과 연관이 없도록 만들어주면
@@ -87,7 +89,7 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
     </div>
   ) : (
     <div className={styles["modal-image"]} onClick={onClick}>
-      <img src={src} alt={alt} loading="lazy" width={width} height={height} />
+      <BlurImg src={src} alt={alt} width={width} height={height} blurHash={blurHash} />
     </div>
   );
 };

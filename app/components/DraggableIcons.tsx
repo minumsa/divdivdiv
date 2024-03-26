@@ -3,10 +3,16 @@
 import React, { memo } from "react";
 import Draggable from "react-draggable";
 import styles from "../divdivdiv.module.css";
-import { fortune, iconSize, iconTitle } from "../modules/icons";
+import { fortune, iconSize, iconTitle } from "../modules/iconsData";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isMobile } from "react-device-detect";
-import { imgAltAtom, imgSrcAtom, languageAtom, showImageAtom } from "../modules/atoms";
+import {
+  blurHashAtom,
+  imgAltAtom,
+  imgSrcAtom,
+  languageAtom,
+  showImageAtom,
+} from "../modules/atoms";
 import { Language } from "../modules/types";
 
 export default function DraggableIcons() {
@@ -36,6 +42,7 @@ interface IconsProps {
 }
 
 function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
+  const setBlurHash = useSetAtom(blurHashAtom);
   const handleImageClick = (path: string) => {
     if (path === "readme") {
       setImgSrc(`/divdivdiv/readme-${language}.webp`);
@@ -59,8 +66,9 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
     title: any[any] | null;
     width: number;
     height: number;
+    blurHash?: string;
   }) {
-    const { className, path, type, title, width, height } = props;
+    const { className, path, type, title, width, height, blurHash } = props;
 
     const handleIconClick = (type: string) => {
       if (type === "fortune") {
@@ -69,6 +77,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
         window.open(path, "_blank");
       } else if (type === "image") {
         handleImageClick(path);
+        if (blurHash) setBlurHash(blurHash);
       }
     };
 
@@ -171,6 +180,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
         title={iconTitle.cat}
         width={iconSize.image.width}
         height={iconSize.image.height}
+        blurHash={"LLGuze8^W?S700.TRhRi9bIT$|-="}
       />
       <DraggableIcon
         className="icon-me"
@@ -179,6 +189,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
         title={iconTitle.me}
         width={iconSize.image.width}
         height={iconSize.image.height}
+        blurHash={"LLIN,9?G?aSi~o4:IoRPXS-oxaR*"}
       />
       <DraggableIcon
         className="icon-fortune"
