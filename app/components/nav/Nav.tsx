@@ -1,6 +1,6 @@
 import { Category } from "./Category";
 import styles from "../divdivdiv.module.css";
-import { CurrentWeather } from "./Weather";
+import { WeatherIcon } from "./Weather";
 import { LanguageToggleButton } from "./LanguageToggleButton";
 import { useAtomValue } from "jotai";
 import { Calender } from "./Calender";
@@ -18,7 +18,7 @@ export const Nav = () => {
       <Category text={about} path="/about" />
       <Category text={contact} path="/contact" />
       <div className={styles["blank-space"]}></div>
-      <CurrentWeather />
+      <WeatherIcon />
       <LanguageToggleButton />
       <Calender />
       <Clock />

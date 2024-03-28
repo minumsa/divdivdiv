@@ -1,9 +1,9 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { Nav } from "./Nav";
 import styles from "../divdivdiv.module.css";
-import { languageAtom, showImageAtom } from "../modules/atoms";
+import { languageAtom, showImageAtom } from "@/app/modules/atoms";
+import { Nav } from "../nav/Nav";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const showImage = useAtomValue(showImageAtom);

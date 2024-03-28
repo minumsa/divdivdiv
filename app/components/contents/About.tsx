@@ -2,7 +2,7 @@
 
 import { useAtomValue } from "jotai";
 import styles from "../divdivdiv.module.css";
-import { languageAtom } from "../modules/atoms";
+import { languageAtom } from "@/app/modules/atoms";
 
 export default function About() {
   const language = useAtomValue(languageAtom);

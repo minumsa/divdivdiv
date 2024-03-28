@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "../divdivdiv.module.css";
 import Image from "next/image";
-import { fetchWeather } from "../modules/api";
-import { Weather } from "../modules/types";
+import { fetchWeather } from "@/app/modules/api";
+import { Weather } from "@/app/modules/types";
 
-export const CurrentWeather = () => {
+export const WeatherIcon = () => {
   const [weather, setWeather] = useState<Weather>({
     icon: null,
     temp: null,

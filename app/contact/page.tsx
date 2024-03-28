@@ -1,12 +1,12 @@
 "use client";
 
-import Contact from "../components/Contact";
-import { FunctionalLayout } from "../components/FunctionalLayout";
+import { Layout } from "../components/@common/Layout";
+import Contact from "../components/contents/Contact";
 
 export default function Page() {
   return (
-    <FunctionalLayout>
+    <Layout>
       <Contact />
-    </FunctionalLayout>
+    </Layout>
   );
 }
