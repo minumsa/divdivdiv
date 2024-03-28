@@ -1,5 +1,5 @@
 import { Category } from "./Category";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { WeatherIcon } from "./Weather";
 import { LanguageToggleButton } from "./LanguageToggleButton";
 import { useAtomValue } from "jotai";

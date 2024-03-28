@@ -1,12 +1,12 @@
 "use client";
 
-import About from "../components/About";
-import { FunctionalLayout } from "../components/FunctionalLayout";
+import { Layout } from "../components/@common/Layout";
+import About from "../components/contents/About";
 
 export default function Page() {
   return (
-    <FunctionalLayout>
+    <Layout>
       <About />
-    </FunctionalLayout>
+    </Layout>
   );
 }

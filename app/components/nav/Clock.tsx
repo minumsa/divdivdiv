@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { useAtomValue } from "jotai";
 import { languageAtom } from "@/app/modules/atoms";
 import NoSSR from "@/app/modules/NoSSR";

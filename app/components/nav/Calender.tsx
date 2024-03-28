@@ -1,5 +1,5 @@
 import { languageAtom } from "@/app/modules/atoms";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { useAtomValue } from "jotai";
 
 export const Calender = () => {

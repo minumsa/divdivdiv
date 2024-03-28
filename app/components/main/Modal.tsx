@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { useAtomValue } from "jotai";
 import { isMobile } from "react-device-detect";
 import { blurHashAtom, languageAtom } from "../../modules/atoms";

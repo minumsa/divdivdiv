@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import Image from "next/image";
 import { fetchWeather } from "@/app/modules/api";
 import { Weather } from "@/app/modules/types";

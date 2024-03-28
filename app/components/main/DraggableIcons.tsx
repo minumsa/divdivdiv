@@ -2,7 +2,7 @@
 
 import React, { memo } from "react";
 import Draggable from "react-draggable";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { fortune, iconSize, iconTitle } from "../../modules/iconsData";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isMobile } from "react-device-detect";

@@ -1,7 +1,7 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { languageAtom, showImageAtom } from "@/app/modules/atoms";
 import { Nav } from "../nav/Nav";
 

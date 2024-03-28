@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { postit } from "../../modules/iconsData";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { Language } from "../../modules/types";
 
 interface PostIt {

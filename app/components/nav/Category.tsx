@@ -1,11 +1,11 @@
 import { usePathname, useRouter } from "next/navigation";
-import styles from "../divdivdiv.module.css";
+import styles from "../../divdivdiv.module.css";
 import { useAtomValue } from "jotai";
 import { languageAtom } from "../../modules/atoms";
 
 interface RenderButtonProps {
   text: string;
-  path: any;
+  path: string;
 }
 
 export function Category({ text, path }: RenderButtonProps) {
