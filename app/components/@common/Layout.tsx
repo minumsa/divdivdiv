@@ -5,7 +5,7 @@ import { Nav } from "./Nav";
 import styles from "../divdivdiv.module.css";
 import { languageAtom, showImageAtom } from "../modules/atoms";
 
-export const FunctionalLayout = ({ children }: { children: React.ReactNode }) => {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   const showImage = useAtomValue(showImageAtom);
   const setLanguage = useSetAtom(languageAtom);
   const searchParams = useSearchParams();

@@ -3,7 +3,7 @@
 import React, { memo } from "react";
 import Draggable from "react-draggable";
 import styles from "../divdivdiv.module.css";
-import { fortune, iconSize, iconTitle } from "../modules/iconsData";
+import { fortune, iconSize, iconTitle } from "../../modules/iconsData";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isMobile } from "react-device-detect";
 import {
@@ -12,10 +12,10 @@ import {
   imgSrcAtom,
   languageAtom,
   showImageAtom,
-} from "../modules/atoms";
-import { Language } from "../modules/types";
+} from "../../modules/atoms";
+import { Language } from "../../modules/types";
 
-export default function DraggableIcons() {
+export const Icons = () => {
   const language = useAtomValue(languageAtom);
   const setShowImage = useSetAtom(showImageAtom);
   const setImgSrc = useSetAtom(imgSrcAtom);
@@ -29,7 +29,7 @@ export default function DraggableIcons() {
       language={language}
     />
   );
-}
+};
 
 interface IconsProps {
   setImgSrc: React.Dispatch<React.SetStateAction<string>>;
@@ -38,7 +38,7 @@ interface IconsProps {
   language: Language;
 }
 
-function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
+const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) => {
   const setBlurHash = useSetAtom(blurHashAtom);
   const handleImageClick = (path: string) => {
     if (path === "readme") {
@@ -54,7 +54,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
     alert(fortune[language][Math.floor(Math.random() * fortune[language].length)]);
   };
 
-  function DraggableIcon(props: {
+  const DraggableIcon = (props: {
     className: string;
     path: string;
     type: string;
@@ -62,7 +62,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
     width: number;
     height: number;
     blurHash?: string;
-  }) {
+  }) => {
     const { className, path, type, title, width, height, blurHash } = props;
 
     const handleIconClick = (type: string) => {
@@ -116,7 +116,7 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
     ) : (
       <Draggable>{draggableContent}</Draggable>
     );
-  }
+  };
 
   return (
     <div className={styles["icons-container"]}>
@@ -208,6 +208,6 @@ function Icons({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) {
       </Draggable> */}
     </div>
   );
-}
+};
 
-const MemoizedIcons = memo(Icons);
+const MemoizedIcons = memo(DraggableIcons);

@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import styles from "../divdivdiv.module.css";
-import { languageAtom } from "../modules/atoms";
+import { languageAtom } from "../../modules/atoms";
 
 export const LanguageToggleButton = () => {
   const [language, setLanguage] = useAtom(languageAtom);

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../divdivdiv.module.css";
-import { readme } from "../modules/iconsData";
+import { readme } from "../../modules/iconsData";
 import { useAtomValue } from "jotai";
 import { isMobile } from "react-device-detect";
-import { blurHashAtom, languageAtom } from "../modules/atoms";
+import { blurHashAtom, languageAtom } from "../../modules/atoms";
 import { BlurImg } from "./BlurImg";
 
 interface ImageModalProps {
