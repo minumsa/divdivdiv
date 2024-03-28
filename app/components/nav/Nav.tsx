@@ -5,16 +5,18 @@ import { LanguageToggleButton } from "./LanguageToggleButton";
 import { useAtomValue } from "jotai";
 import { Calender } from "./Calender";
 import Clock from "./Clock";
-import { languageAtom } from "../modules/atoms";
+import { languageAtom } from "@/app/modules/atoms";
 
 export const Nav = () => {
-  const language = useAtomValue(languageAtom);
+  const isKorean = useAtomValue(languageAtom) === "ko";
+  const about = isKorean ? "소개" : "about";
+  const contact = isKorean ? "연결" : "contact";
 
   return (
     <div className={styles["nav"]}>
       <Category text="divdivdiv" path="/" />
-      <Category text={language === "en" ? "about" : "소개"} path="/about" />
-      <Category text={language === "en" ? "contact" : "연결"} path="/contact" />
+      <Category text={about} path="/about" />
+      <Category text={contact} path="/contact" />
       <div className={styles["blank-space"]}></div>
       <CurrentWeather />
       <LanguageToggleButton />

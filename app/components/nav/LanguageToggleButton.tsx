@@ -4,6 +4,8 @@ import { languageAtom } from "../../modules/atoms";
 
 export const LanguageToggleButton = () => {
   const [language, setLanguage] = useAtom(languageAtom);
+  const isKorean = language === "ko";
+  const currentLanguage = isKorean ? "한" : "A";
 
   const toggleLanguage = () => {
     const newLanguage = language === "en" ? "ko" : "en";
@@ -12,7 +14,7 @@ export const LanguageToggleButton = () => {
 
   return (
     <div className={`${styles["button-right"]} ${styles["language"]}`} onClick={toggleLanguage}>
-      {language === "en" ? "A" : "한"}
+      {currentLanguage}
     </div>
   );
 };

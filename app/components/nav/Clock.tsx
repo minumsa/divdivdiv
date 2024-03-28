@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import NoSSR from "../modules/NoSSR";
 import styles from "../divdivdiv.module.css";
 import { useAtomValue } from "jotai";
-import { languageAtom } from "../modules/atoms";
+import { languageAtom } from "@/app/modules/atoms";
+import NoSSR from "@/app/modules/NoSSR";
 
 export default function Clock() {
-  const language = useAtomValue(languageAtom);
+  const isKorean = useAtomValue(languageAtom) === "ko";
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
   useEffect(() => {
@@ -23,10 +23,10 @@ export default function Clock() {
   const twelveHourFormat: number = hours % 12 || 12;
   let period: string = "";
 
-  if (language === "en") {
-    period = hours >= 12 ? "PM" : "AM";
-  } else {
+  if (isKorean) {
     period = hours >= 12 ? "오후" : "오전";
+  } else {
+    period = hours >= 12 ? "PM" : "AM";
   }
 
   const clock = `${period} ${String(twelveHourFormat).padStart(2, "0")}:${minutes}`;

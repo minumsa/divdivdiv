@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "../divdivdiv.module.css";
-import { readme } from "../../modules/iconsData";
 import { useAtomValue } from "jotai";
 import { isMobile } from "react-device-detect";
 import { blurHashAtom, languageAtom } from "../../modules/atoms";
-import { BlurImg } from "./BlurImg";
+import { readme } from "@/app/modules/iconsData";
+import { BlurImg } from "../@common/BlurImg";
 
 interface ImageModalProps {
   src: string;
@@ -14,15 +14,16 @@ interface ImageModalProps {
 
 export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
   const language = useAtomValue(languageAtom);
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight);
+  const isKorean = language === "ko";
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const blurHash = useAtomValue(blurHashAtom);
+  const isREADMEItem = alt === "readme";
 
   // FIXME: Main 이 Desktop 이랑 ModalContainer를 가지고 있어서
   // Modal의 상태 변화가 Desktop과 연관이 없도록 만들어주면
   // Modal이 열리고 닫힐 때마다 Desktop이 리렌더링 되지 않게 할 수 있다.
   // 상태 변수는 여기에 두고 props 형태로 자식 컴포넌트로 보내기
-
   const handleWindowResize = () => {
     setWindowWidth(window.innerWidth);
     setWindowHeight(window.innerHeight);
@@ -48,7 +49,7 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
     }
   }
 
-  function ReadmeComponent(props: { path: string; icon: any }) {
+  function READMEItem(props: { path: string; icon: any }) {
     const { path, icon } = props;
 
     return (
@@ -56,7 +57,7 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
         className={styles["paragraph"]}
         style={{
           margin: isMobile ? "10px 30px" : "10px 70px",
-          wordBreak: language === "ko" ? "break-all" : undefined,
+          wordBreak: isKorean ? "break-all" : undefined,
         }}
       >
         <div className={styles["paragraph-title"]} onClick={() => window.open(path, "_blank")}>
@@ -68,23 +69,23 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
   }
 
   // FIXME: 리드미와 이미지 모달 컴포넌트를 아예 별개로 분리
-  return alt === "readme" ? (
+  return isREADMEItem ? (
     <div
       className={styles["modal-container"]}
       onClick={onClick}
       style={{
-        textAlign: language === "ko" ? "justify" : undefined,
+        textAlign: isKorean ? "justify" : undefined,
       }}
     >
       <div className={styles["modal"]} style={{ width: width, height: height }}>
         <div className={styles["last-updated"]}>{readme.lastUpdated.text[language]}</div>
-        <ReadmeComponent path="https://blog.divdivdiv.com" icon={readme.blog} />
-        <ReadmeComponent path="https://music.divdivdiv.com" icon={readme.music} />
-        <ReadmeComponent path="https://barbershop.divdivdiv.com" icon={readme.barbershop} />
-        <ReadmeComponent path="https://cinephile.divdivdiv.com" icon={readme.cinephile} />
-        <ReadmeComponent path="https://fruits.divdivdiv.com" icon={readme.fruits} />
-        <ReadmeComponent path="https://words.divdivdiv.com" icon={readme.words} />
-        <ReadmeComponent path="/" icon={readme.techStack} />
+        <READMEItem path="https://blog.divdivdiv.com" icon={readme.blog} />
+        <READMEItem path="https://music.divdivdiv.com" icon={readme.music} />
+        <READMEItem path="https://barbershop.divdivdiv.com" icon={readme.barbershop} />
+        <READMEItem path="https://cinephile.divdivdiv.com" icon={readme.cinephile} />
+        <READMEItem path="https://fruits.divdivdiv.com" icon={readme.fruits} />
+        <READMEItem path="https://words.divdivdiv.com" icon={readme.words} />
+        <READMEItem path="/" icon={readme.techStack} />
       </div>
     </div>
   ) : (
