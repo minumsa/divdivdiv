@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import styles from "../../divdivdiv.module.css";
+import styles from "./LanguageToggleButton.module.css";
 import { languageAtom } from "../../modules/atoms";
 
 export const LanguageToggleButton = () => {
@@ -13,7 +13,7 @@ export const LanguageToggleButton = () => {
   };
 
   return (
-    <div className={`${styles["button-right"]} ${styles["language"]}`} onClick={toggleLanguage}>
+    <div className={styles["language"]} onClick={toggleLanguage}>
       {currentLanguage}
     </div>
   );

@@ -1,5 +1,5 @@
 import { usePathname, useRouter } from "next/navigation";
-import styles from "../../divdivdiv.module.css";
+import styles from "./Category.module.css";
 import { useAtomValue } from "jotai";
 import { languageAtom } from "../../modules/atoms";
 

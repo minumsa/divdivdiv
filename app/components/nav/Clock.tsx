@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../divdivdiv.module.css";
+import styles from "./Clock.module.css";
 import { useAtomValue } from "jotai";
 import { languageAtom } from "@/app/modules/atoms";
 import NoSSR from "@/app/modules/NoSSR";
@@ -33,7 +33,7 @@ export default function Clock() {
 
   return (
     <NoSSR>
-      <div className={`${styles["button-right"]} ${styles["clock"]}`}>{clock}</div>
+      <div className={styles["clock"]}>{clock}</div>
     </NoSSR>
   );
 }

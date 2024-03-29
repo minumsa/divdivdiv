@@ -1,8 +1,8 @@
 import { languageAtom } from "@/app/modules/atoms";
-import styles from "../../divdivdiv.module.css";
+import styles from "./Calendar.module.css";
 import { useAtomValue } from "jotai";
 
-export const Calender = () => {
+export const Calendar = () => {
   const isKorean = useAtomValue(languageAtom) === "ko";
 
   function getDayOfWeek(date: Date): [string, string] {

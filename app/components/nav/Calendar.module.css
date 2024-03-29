@@ -1,0 +1,19 @@
+.button-right {
+  margin: 0 10px;
+  padding: 1px 5px;
+  font-size: 14px;
+}
+
+.calendar {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+@media (max-width: 620px) {
+  .calendar {
+    display: none;
+    margin: 0 5px;
+    padding: 1px 5px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,13 @@
+.weather {
+  padding: 1px 5px;
+  margin: 3px 0 0 0;
+  padding: 1px 0;
+}
+
+.temperature {
+  margin: 0 10px;
+  padding: 1px 5px;
+  margin: 0 8px 0 1px;
+  padding: 1px 0;
+  font-size: 14px;
+}

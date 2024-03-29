@@ -1,0 +1,26 @@
+.language {
+  margin: 0 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1px 7px;
+  font-size: 14px;
+}
+
+.language:hover {
+  animation: blink 0.5s ease-in-out infinite alternate;
+  -webkit-animation: blink 0.5s ease-in-out infinite alternate;
+  -moz-animation: blink 0.5s ease-in-out infinite alternate;
+}
+
+@media (max-width: 620px) {
+  .language {
+    margin: 0 5px;
+  }
+
+  .language:hover {
+    animation: none;
+    -webkit-animation: none;
+    -moz-animation: none;
+  }
+}

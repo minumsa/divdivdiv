@@ -1,0 +1,11 @@
+.clock {
+  margin: 0;
+  padding: 1px 5px;
+  font-size: 14px;
+}
+
+@media (max-width: 620px) {
+  .clock {
+    display: none;
+  }
+}

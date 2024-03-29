@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../divdivdiv.module.css";
+import styles from "./Weather.module.css";
 import Image from "next/image";
 import { fetchWeather } from "@/app/modules/api";
 import { Weather } from "@/app/modules/types";
@@ -17,7 +17,7 @@ export const WeatherIcon = () => {
   return (
     <>
       {weather.icon && (
-        <div className={`${styles["button-right"]} ${styles["weather"]}`}>
+        <div className={styles["weather"]}>
           <Image
             src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
             width={35}
@@ -26,7 +26,7 @@ export const WeatherIcon = () => {
           />
         </div>
       )}
-      <div className={`${styles["button-right"]} ${styles["temperature"]}`}>
+      <div className={styles["temperature"]}>
         {weather.temp && `${(weather.temp - 273.15).toFixed(1)}°`}
       </div>
     </>
