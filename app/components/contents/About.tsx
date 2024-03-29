@@ -4,14 +4,19 @@ import { useAtomValue } from "jotai";
 import styles from "./About.module.css";
 import { languageAtom } from "@/app/modules/atoms";
 
+interface AboutItem {
+  en: string;
+  ko: string;
+}
+
+interface About {
+  job: AboutItem;
+  interest: AboutItem;
+  ai: AboutItem;
+}
+
 export default function About() {
   const language = useAtomValue(languageAtom);
-
-  interface About {
-    job: Record<any, string>;
-    interest: Record<any, string>;
-    ai: Record<any, string>;
-  }
 
   const about: About = {
     job: {

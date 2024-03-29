@@ -17,7 +17,7 @@ export const Nav = () => {
       <Category text="divdivdiv" path="/" />
       <Category text={about} path="/about" />
       <Category text={contact} path="/contact" />
-      <div className={styles["blank-space"]}></div>
+      <div className={styles["blank-space"]} />
       <WeatherIcon />
       <LanguageToggleButton />
       <Calendar />

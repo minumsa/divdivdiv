@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { postit } from "../../modules/iconsData";
+import { postit } from "../../modules/icons";
 import styles from "./PostIt.module.css";
 import { Language } from "../../modules/types";
 

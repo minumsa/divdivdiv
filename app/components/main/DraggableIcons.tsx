@@ -3,7 +3,7 @@
 import React, { memo } from "react";
 import Draggable from "react-draggable";
 import styles from "./DraggableIcons.module.css";
-import { fortune, iconSize, iconTitle } from "../../modules/iconsData";
+import { fortune, iconSize, iconTitle } from "../../modules/icons";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isMobile } from "react-device-detect";
 import {
@@ -14,6 +14,25 @@ import {
   showImageAtom,
 } from "../../modules/atoms";
 import { Language } from "../../modules/types";
+
+const BLURHASH_CAT = "LLGuze8^W?S700.TRhRi9bIT$|-=";
+const BLURHASH_ME = "LLIN,9?G?aSi~o4:IoRPXS-oxaR*";
+
+interface IconsProps {
+  setImgSrc: React.Dispatch<React.SetStateAction<string>>;
+  setImgAlt: React.Dispatch<React.SetStateAction<string>>;
+  setShowImage: React.Dispatch<React.SetStateAction<boolean>>;
+  language: Language;
+}
+
+interface Size {
+  width: number;
+  height: number;
+}
+
+interface IconTitle {
+  [key: string]: string;
+}
 
 export const Icons = () => {
   const language = useAtomValue(languageAtom);
@@ -31,20 +50,14 @@ export const Icons = () => {
   );
 };
 
-interface IconsProps {
-  setImgSrc: React.Dispatch<React.SetStateAction<string>>;
-  setImgAlt: React.Dispatch<React.SetStateAction<string>>;
-  setShowImage: React.Dispatch<React.SetStateAction<boolean>>;
-  language: Language;
-}
-
 const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsProps) => {
   const setBlurHash = useSetAtom(blurHashAtom);
   const handleImageClick = (path: string) => {
-    if (path === "readme") {
-      setImgSrc(`/divdivdiv/readme-${language}.webp`);
+    const isReadme = path === "readme";
+    if (isReadme) {
+      setImgSrc(`/images/readme-${language}.webp`);
     } else {
-      setImgSrc(`/divdivdiv/${path}.webp`);
+      setImgSrc(`/images/${path}.webp`);
     }
     setImgAlt(path);
     setShowImage(true);
@@ -58,19 +71,26 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
     className: string;
     path: string;
     type: string;
-    title: any[any] | null;
-    width: number;
-    height: number;
+    title: IconTitle;
+    size: Size;
     blurHash?: string;
   }) => {
-    const { className, path, type, title, width, height, blurHash } = props;
+    const { className, path, type, title, size, blurHash } = props;
+    const isFortuneCookie = type === "fortune";
+    const isFolder = type === "folder";
+    const isImage = type === "image";
+    const isReadme = path === "readme";
 
-    const handleIconClick = (type: string) => {
-      if (type === "fortune") {
+    console.log(isReadme);
+
+    const handleIconClick = () => {
+      if (isFortuneCookie) {
         handleFortuneClick();
-      } else if (type === "folder") {
+      }
+      if (isFolder) {
         window.open(path, "_blank");
-      } else if (type === "image") {
+      }
+      if (isImage) {
         handleImageClick(path);
         if (blurHash) setBlurHash(blurHash);
       }
@@ -80,42 +100,35 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
       <div
         className={`${styles["icon"]} ${styles[className]}`}
         onDoubleClick={() => {
-          isMobile ? undefined : handleIconClick(type);
+          isMobile ? undefined : handleIconClick();
         }}
         onClick={() => {
-          isMobile ? handleIconClick(type) : undefined;
+          isMobile ? handleIconClick() : undefined;
         }}
       >
         <div
           className={styles["icon-image"]}
           style={{
-            width: width,
-            height: height,
-            backgroundImage:
-              type === "image" ? `url(/divdivdiv/${path}.webp)` : `url(/divdivdiv/${type}.webp)`,
-            boxShadow: type === "image" ? "1px 2px 5px gray" : undefined,
-            border: type === "image" && path !== "readme" ? "4px solid white" : 0,
+            width: size.width,
+            height: size.height,
+            backgroundImage: isImage ? `url(/images/${path}.webp)` : `url(/images/${type}.webp)`,
+            boxShadow: isImage ? "1px 2px 5px #cfcfcf" : undefined,
+            border: isImage && !isReadme ? "4px solid #fff" : undefined,
           }}
         ></div>
-        {title && (
-          <div
-            className={styles["icon-title"]}
-            style={{
-              marginTop: type === "folder" || type === "fortune" ? "5px" : "10px",
-            }}
-          >
-            <div>{title[language]}</div>
-          </div>
-        )}
+        <div
+          className={styles["icon-title"]}
+          style={{
+            marginTop: isFolder || isFortuneCookie ? "5px" : "10px",
+          }}
+        >
+          <div>{title[language]}</div>
+        </div>
       </div>
     );
 
-    // 데스크톱에서만 드래그 가능한 아이콘으로 설정
-    return isMobile ? (
-      <React.Fragment>{draggableContent}</React.Fragment>
-    ) : (
-      <Draggable>{draggableContent}</Draggable>
-    );
+    // 데스크톱에서만 드래그 아이콘으로 설정
+    return isMobile ? <>{draggableContent}</> : <Draggable>{draggableContent}</Draggable>;
   };
 
   return (
@@ -125,82 +138,72 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
         path="https://blog.divdivdiv.com"
         type="folder"
         title={iconTitle.blog}
-        width={iconSize.folder.width}
-        height={iconSize.folder.height}
+        size={iconSize.folder}
       />
       <DraggableIcon
         className="icon-music"
         path="https://music.divdivdiv.com"
         type="folder"
         title={iconTitle.music}
-        width={iconSize.folder.width}
-        height={iconSize.folder.height}
+        size={iconSize.folder}
       />
       <DraggableIcon
         className="icon-barbershop"
         path="https://barbershop.divdivdiv.com"
         type="folder"
         title={iconTitle.barbershop}
-        width={iconSize.folder.width}
-        height={iconSize.folder.height}
+        size={iconSize.folder}
       />
       <DraggableIcon
         className="icon-cinephile"
         path="https://cinephile.divdivdiv.com"
         type="folder"
         title={iconTitle.cinephile}
-        width={iconSize.folder.width}
-        height={iconSize.folder.height}
+        size={iconSize.folder}
       />
       <DraggableIcon
         className="icon-fruits"
         path="https://fruits.divdivdiv.com"
         type="folder"
         title={iconTitle.fruits}
-        width={iconSize.folder.width}
-        height={iconSize.folder.height}
+        size={iconSize.folder}
       />
       <DraggableIcon
         className="icon-words"
         path="https://words.divdivdiv.com"
         type="folder"
         title={iconTitle.words}
-        width={iconSize.folder.width}
-        height={iconSize.folder.height}
+        size={iconSize.folder}
       />
       <DraggableIcon
         className="icon-cat"
         path="cat"
         type="image"
         title={iconTitle.cat}
-        width={iconSize.image.width}
-        height={iconSize.image.height}
-        blurHash={"LLGuze8^W?S700.TRhRi9bIT$|-="}
+        size={iconSize.image}
+        blurHash={BLURHASH_CAT}
       />
       <DraggableIcon
         className="icon-me"
         path="me"
         type="image"
         title={iconTitle.me}
-        width={iconSize.image.width}
-        height={iconSize.image.height}
-        blurHash={"LLIN,9?G?aSi~o4:IoRPXS-oxaR*"}
+        size={iconSize.image}
+        blurHash={BLURHASH_ME}
       />
       <DraggableIcon
         className="icon-fortune"
         path="fortune"
         type="fortune"
         title={iconTitle.fortune}
-        width={iconSize.fortune.width}
-        height={iconSize.fortune.height}
+        size={iconSize.fortune}
       />
       <DraggableIcon
         className="icon-readme"
         path="readme"
         type="image"
         title={iconTitle.readme}
-        width={iconSize.image.width}
-        height={iconSize.image.height}
+        size={iconSize.image}
       />
       {/* PostIt 애매해서 일단 각주 처리! */}
       {/* <Draggable>

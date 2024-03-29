@@ -11,20 +11,22 @@ interface RenderButtonProps {
 export function Category({ text, path }: RenderButtonProps) {
   const router = useRouter();
   const currentPath = usePathname();
+  const isCurrentPath = path === currentPath;
   const language = useAtomValue(languageAtom);
+  const pathWithLanguage = `${path}?language=${language}`;
 
   return (
     <div
       className={styles["button-left"]}
       style={
-        path === currentPath
+        isCurrentPath
           ? {
               fontWeight: "600",
             }
           : undefined
       }
       onClick={() => {
-        router.push(`${path}?language=${language}`);
+        router.push(pathWithLanguage);
       }}
     >
       <div>{text}</div>

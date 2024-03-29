@@ -3,7 +3,7 @@ import styles from "./Modal.module.css";
 import { useAtomValue } from "jotai";
 import { isMobile } from "react-device-detect";
 import { blurHashAtom, languageAtom } from "../../modules/atoms";
-import { readme } from "@/app/modules/iconsData";
+import { readme } from "@/app/modules/icons";
 import { BlurImg } from "../@common/BlurImg";
 
 interface ImageModalProps {
@@ -19,6 +19,7 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const blurHash = useAtomValue(blurHashAtom);
   const isREADMEItem = alt === "readme";
+  const { lastUpdated, blog, music, barbershop, cinephile, fruits, words, techStack } = readme;
 
   // FIXME: Main 이 Desktop 이랑 ModalContainer를 가지고 있어서
   // Modal의 상태 변화가 Desktop과 연관이 없도록 만들어주면
@@ -78,14 +79,14 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
       }}
     >
       <div className={styles["modal"]} style={{ width: width, height: height }}>
-        <div className={styles["last-updated"]}>{readme.lastUpdated.text[language]}</div>
-        <READMEItem path="https://blog.divdivdiv.com" icon={readme.blog} />
-        <READMEItem path="https://music.divdivdiv.com" icon={readme.music} />
-        <READMEItem path="https://barbershop.divdivdiv.com" icon={readme.barbershop} />
-        <READMEItem path="https://cinephile.divdivdiv.com" icon={readme.cinephile} />
-        <READMEItem path="https://fruits.divdivdiv.com" icon={readme.fruits} />
-        <READMEItem path="https://words.divdivdiv.com" icon={readme.words} />
-        <READMEItem path="/" icon={readme.techStack} />
+        <div className={styles["last-updated"]}>{lastUpdated.text[language]}</div>
+        <READMEItem path="https://blog.divdivdiv.com" icon={blog} />
+        <READMEItem path="https://music.divdivdiv.com" icon={music} />
+        <READMEItem path="https://barbershop.divdivdiv.com" icon={barbershop} />
+        <READMEItem path="https://cinephile.divdivdiv.com" icon={cinephile} />
+        <READMEItem path="https://fruits.divdivdiv.com" icon={fruits} />
+        <READMEItem path="https://words.divdivdiv.com" icon={words} />
+        <READMEItem path="/" icon={techStack} />
       </div>
     </div>
   ) : (

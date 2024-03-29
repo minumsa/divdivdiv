@@ -22,18 +22,20 @@ export default function Clock() {
   const minutes: string = String(currentTime.getMinutes()).padStart(2, "0");
   const twelveHourFormat: number = hours % 12 || 12;
   let period: string = "";
+  const koreanPeriod = hours >= 12 ? "오후" : "오전";
+  const englishPeriod = hours >= 12 ? "PM" : "AM";
 
   if (isKorean) {
-    period = hours >= 12 ? "오후" : "오전";
+    period = koreanPeriod;
   } else {
-    period = hours >= 12 ? "PM" : "AM";
+    period = englishPeriod;
   }
 
-  const clock = `${period} ${String(twelveHourFormat).padStart(2, "0")}:${minutes}`;
+  const formattedTime = `${period} ${String(twelveHourFormat).padStart(2, "0")}:${minutes}`;
 
   return (
     <NoSSR>
-      <div className={styles["clock"]}>{clock}</div>
+      <div className={styles["clock"]}>{formattedTime}</div>
     </NoSSR>
   );
 }

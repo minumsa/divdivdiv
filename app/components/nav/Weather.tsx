@@ -2,33 +2,30 @@ import { useEffect, useState } from "react";
 import styles from "./Weather.module.css";
 import Image from "next/image";
 import { fetchWeather } from "@/app/modules/api";
-import { Weather } from "@/app/modules/types";
 
 export const WeatherIcon = () => {
-  const [weather, setWeather] = useState<Weather>({
-    icon: null,
-    temp: null,
-  });
+  const [weatherIcon, setWeatherIcon] = useState("");
+  const weatherIconLink = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  const [temperature, setTemperature] = useState("");
 
   useEffect(() => {
-    fetchWeather(setWeather);
+    async function loadData() {
+      const result = await fetchWeather();
+      const { icon, temperature } = result;
+      const formattedTemperature = `${(temperature - 273.15).toFixed(1)}°`;
+      setWeatherIcon(icon);
+      setTemperature(formattedTemperature);
+    }
+
+    loadData();
   }, []);
 
   return (
     <>
-      {weather.icon && (
-        <div className={styles["weather"]}>
-          <Image
-            src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-            width={35}
-            height={35}
-            alt="Weather Icon"
-          />
-        </div>
-      )}
-      <div className={styles["temperature"]}>
-        {weather.temp && `${(weather.temp - 273.15).toFixed(1)}°`}
+      <div className={styles["weather"]}>
+        <Image src={weatherIconLink} width={35} height={35} alt="weather" />
       </div>
+      <div className={styles["temperature"]}>{temperature}</div>
     </>
   );
 };
