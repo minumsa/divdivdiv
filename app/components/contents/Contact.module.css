@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  margin: 70px 85px 0 105px;
+}
+
+.contact-text {
+  margin: 0 20px 0 0;
+}
+
+@media (max-width: 620px) {
+  .contact-text {
+    margin: 0 5px 0 0;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 499px) {
+  .container {
+    margin-left: 50px;
+  }
+}

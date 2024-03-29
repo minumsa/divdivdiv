@@ -1,7 +1,7 @@
 "use client";
 
 import { useAtomValue } from "jotai";
-import styles from "../../divdivdiv.module.css";
+import styles from "./About.module.css";
 import { languageAtom } from "@/app/modules/atoms";
 
 export default function About() {
@@ -29,7 +29,7 @@ export default function About() {
   };
 
   return (
-    <div className={styles["about-container"]}>
+    <div className={styles["container"]}>
       <ul>
         {Object.keys(about).map(key => {
           return <li key={key}>{about[key as keyof About][language]}</li>;

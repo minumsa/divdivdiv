@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { postit } from "../../modules/iconsData";
-import styles from "../../divdivdiv.module.css";
+import styles from "./PostIt.module.css";
 import { Language } from "../../modules/types";
 
 interface PostIt {
@@ -11,12 +11,9 @@ export const PostIt = ({ language }: PostIt) => {
   const [closePostIt, setClosePostIt] = useState<boolean>(false);
 
   return (
-    <div
-      className={styles["postit-container"]}
-      style={closePostIt ? { display: "none" } : undefined}
-    >
+    <div className={styles["container"]} style={closePostIt ? { display: "none" } : undefined}>
       <div
-        className={styles["postit-close-button"]}
+        className={styles["close-button"]}
         onClick={() => {
           setClosePostIt(true);
         }}

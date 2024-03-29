@@ -1,0 +1,125 @@
+.icon {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  cursor: move;
+  width: 110px;
+}
+
+.icon-blog {
+  top: 100px;
+  left: 100px;
+}
+
+.icon-music {
+  top: 100px;
+  left: 230px;
+}
+
+.icon-barbershop {
+  top: 100px;
+  left: 360px;
+}
+
+.icon-cinephile {
+  top: 100px;
+  left: 490px;
+}
+
+.icon-words {
+  top: 100px;
+  left: 620px;
+}
+
+.icon-fruits {
+  top: 100px;
+  left: 750px;
+}
+
+.icon-me {
+  top: 250px;
+  left: 100px;
+}
+
+.icon-cat {
+  top: 250px;
+  left: 230px;
+}
+
+.icon-fortune {
+  top: 260px;
+  left: 490px;
+}
+
+.icon-readme {
+  top: 252px;
+  left: 360px;
+}
+
+.icon-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  font-size: 0.85rem;
+}
+
+.icon-image {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: move;
+  color: white;
+}
+
+.icon-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  font-size: 0.85rem;
+}
+
+.icons-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 620px) {
+  .icon {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .icon-blog,
+  .icon-cinephile,
+  .icon-fruits,
+  .icon-words,
+  .icon-cat,
+  .icon-me,
+  .icon-fortune,
+  .icon-readme,
+  .icon-music,
+  .icon-barbershop {
+    top: unset;
+    right: unset;
+    left: unset;
+  }
+
+  .icons-container {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    height: auto;
+  }
+}
+
+@media (max-width: 499px) {
+  .icon-title {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,60 @@
+.paragraph {
+  line-height: 180%;
+  font-size: 15px;
+}
+
+.paragraph-title {
+  cursor: pointer;
+  width: fit-content;
+  font-weight: 600;
+}
+
+.modal-container {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  border: 1px solid #e6e6e6;
+  background-color: #ffffff;
+  padding: 10px 1px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #222222;
+}
+
+.last-updated {
+  padding-bottom: 10px;
+  text-align: center;
+  color: #a6acaf;
+  font-size: 15px;
+}
+
+.modal-image {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .paragraph,
+  .paragraph-title,
+  .last-updated {
+    font-size: 14px;
+  }
+}

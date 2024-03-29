@@ -1,0 +1,48 @@
+.container {
+  position: absolute;
+  bottom: 180px;
+  left: 120px;
+  border: 1px solid hsl(0, 0%, 90%);
+  box-shadow: 1px 2px 5px rgb(200, 200, 200);
+  cursor: move;
+  width: 250px;
+  height: 170px;
+  line-height: 160%;
+  font-size: 0.8rem;
+}
+
+.close-button {
+  position: absolute;
+  top: -4.5px;
+  right: 3px;
+  cursor: pointer;
+  padding: 0 2px;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+  color: #aca559;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.postit-top {
+  background-color: #ffec3c;
+  width: 100%;
+  height: 8%;
+}
+
+.postit {
+  background-color: #fef49c;
+  width: 100%;
+  height: 92%;
+}
+
+.postit-text {
+  padding: 10px;
+}
+
+@media (max-width: 620px) {
+  .container {
+    display: none;
+  }
+}

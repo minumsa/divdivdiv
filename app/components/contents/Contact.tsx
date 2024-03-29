@@ -1,7 +1,7 @@
 "use client";
 
 import { languageAtom } from "@/app/modules/atoms";
-import styles from "../../divdivdiv.module.css";
+import styles from "./Contact.module.css";
 import { useAtomValue } from "jotai";
 
 export default function Contact() {
@@ -10,12 +10,12 @@ export default function Contact() {
   const email = isKorean ? "이메일" : "E-mail";
 
   return (
-    <div className={styles["contact-container"]}>
-      <a className={styles["contact-link"]} href="https://github.com/minumsa" target="_blank">
-        <div className={styles["button-contact"]}>{github}</div>
+    <div className={styles["container"]}>
+      <a href="https://github.com/minumsa" target="_blank">
+        <div className={styles["contact-text"]}>{github}</div>
       </a>
-      <a className={styles["contact-link"]} href="mailto:carver1014@kakao.com" target="_blank">
-        <div className={styles["button-contact"]}>{email}</div>
+      <a href="mailto:carver1014@kakao.com" target="_blank">
+        <div className={styles["contact-text"]}>{email}</div>
       </a>
     </div>
   );
