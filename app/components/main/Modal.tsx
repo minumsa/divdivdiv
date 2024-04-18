@@ -1,25 +1,50 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.css";
-import { useAtomValue } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { isMobile } from "react-device-detect";
-import { blurHashAtom, languageAtom } from "../../modules/atoms";
+import {
+  blurHashAtom,
+  imgAltAtom,
+  imgSrcAtom,
+  languageAtom,
+  showImageAtom,
+} from "../../modules/atoms";
 import { readme } from "@/app/modules/icons";
 import { BlurImg } from "../@common/BlurImg";
 
-interface ImageModalProps {
-  src: string;
-  alt: string;
-  onClick: any;
-}
-
-export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
+export const ImageModal = () => {
   const language = useAtomValue(languageAtom);
   const isKorean = language === "ko";
+  const [imgSrc, setImgSrc] = useAtom(imgSrcAtom);
+  const [imgAlt, setImgAlt] = useAtom(imgAltAtom);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const blurHash = useAtomValue(blurHashAtom);
-  const isREADMEItem = alt === "readme";
+  const isREADMEItem = imgAlt === "readme";
   const { lastUpdated, blog, music, barbershop, cinephile, fruits, words, techStack } = readme;
+  const modalRef = useRef<HTMLDivElement>(null);
+  const setShowImage = useSetAtom(showImageAtom);
+
+  const handleModalClick = () => {
+    setShowImage(false);
+    setImgSrc("");
+    setImgAlt("");
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isClickedOutsideModal =
+        modalRef.current && !modalRef.current.contains(event.target as Node);
+      if (isClickedOutsideModal) {
+        handleModalClick();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef]);
 
   // FIXME: Main 이 Desktop 이랑 ModalContainer를 가지고 있어서
   // Modal의 상태 변화가 Desktop과 연관이 없도록 만들어주면
@@ -44,7 +69,7 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
     width = windowWidth * 0.9;
     height = width * 1.3;
 
-    if (alt === "readme") {
+    if (imgAlt === "readme") {
       width = windowWidth * 0.9;
       height = width * 1.6;
     }
@@ -73,10 +98,11 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
   return isREADMEItem ? (
     <div
       className={styles["modal-container"]}
-      onClick={onClick}
+      onClick={handleModalClick}
       style={{
         textAlign: isKorean ? "justify" : undefined,
       }}
+      ref={modalRef}
     >
       <div className={styles["modal"]} style={{ width: width, height: height }}>
         <div className={styles["last-updated"]}>{lastUpdated.text[language]}</div>
@@ -90,8 +116,8 @@ export const ImageModal = ({ src, alt, onClick }: ImageModalProps) => {
       </div>
     </div>
   ) : (
-    <div className={styles["modal-image"]} onClick={onClick}>
-      <BlurImg src={src} alt={alt} width={width} height={height} blurHash={blurHash} />
+    <div className={styles["modal-image"]} onClick={handleModalClick} ref={modalRef}>
+      <BlurImg src={imgSrc} alt={imgAlt} width={width} height={height} blurHash={blurHash} />
     </div>
   );
 };
