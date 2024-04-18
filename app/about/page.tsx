@@ -1,5 +1,3 @@
-"use client";
-
 import { Layout } from "../components/@common/Layout";
 import About from "../components/contents/About";
 

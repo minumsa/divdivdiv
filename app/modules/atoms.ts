@@ -6,3 +6,5 @@ export const imgSrcAtom = atom("");
 export const imgAltAtom = atom("");
 export const languageAtom = atom<Language>("ko");
 export const blurHashAtom = atom<string>("");
+export const weatherIconAtom = atom<string>("");
+export const temperatrueAtom = atom<string>("");

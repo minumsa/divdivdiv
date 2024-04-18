@@ -12,8 +12,6 @@ export function Category({ text, path }: RenderButtonProps) {
   const router = useRouter();
   const currentPath = usePathname();
   const isCurrentPath = path === currentPath;
-  const language = useAtomValue(languageAtom);
-  const pathWithLanguage = `${path}?language=${language}`;
 
   return (
     <div
@@ -26,7 +24,7 @@ export function Category({ text, path }: RenderButtonProps) {
           : undefined
       }
       onClick={() => {
-        router.push(pathWithLanguage);
+        router.push(path);
       }}
     >
       <div>{text}</div>

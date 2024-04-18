@@ -13,7 +13,12 @@ export const LanguageToggleButton = () => {
   };
 
   return (
-    <div className={styles["language"]} onClick={toggleLanguage}>
+    <div
+      className={styles["language"]}
+      onClick={() => {
+        toggleLanguage();
+      }}
+    >
       {currentLanguage}
     </div>
   );

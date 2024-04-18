@@ -81,8 +81,6 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
     const isImage = type === "image";
     const isReadme = path === "readme";
 
-    console.log(isReadme);
-
     const handleIconClick = () => {
       if (isFortuneCookie) {
         handleFortuneClick();

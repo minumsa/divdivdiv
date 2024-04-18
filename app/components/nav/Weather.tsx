@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import styles from "./Weather.module.css";
 import Image from "next/image";
 import { fetchWeather } from "@/app/modules/api";
+import { useAtom } from "jotai";
+import { temperatrueAtom, weatherIconAtom } from "@/app/modules/atoms";
 
 export const WeatherIcon = () => {
-  const [weatherIcon, setWeatherIcon] = useState("");
+  const [weatherIcon, setWeatherIcon] = useAtom(weatherIconAtom);
   const weatherIconLink = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-  const [temperature, setTemperature] = useState("");
+  const [temperature, setTemperature] = useAtom(temperatrueAtom);
 
   useEffect(() => {
     async function loadData() {
@@ -17,7 +19,8 @@ export const WeatherIcon = () => {
       setTemperature(formattedTemperature);
     }
 
-    loadData();
+    const hasNoWeatherData = weatherIcon.length === 0;
+    hasNoWeatherData && loadData();
   }, []);
 
   return (

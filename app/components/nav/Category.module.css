@@ -6,7 +6,7 @@
   cursor: pointer;
   height: 65%;
   font-size: 14px;
-  border-right: 0.5px solid #000;
+  /* border-right: 0.5px solid #000; */
 }
 
 @media (max-width: 620px) {
