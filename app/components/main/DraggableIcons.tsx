@@ -132,17 +132,17 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
   return (
     <div className={styles["icons-container"]}>
       <DraggableIcon
-        className="icon-blog"
-        path="https://blog.divdivdiv.com"
-        type="folder"
-        title={iconTitle.blog}
-        size={iconSize.folder}
-      />
-      <DraggableIcon
         className="icon-music"
         path="https://music.divdivdiv.com"
         type="folder"
         title={iconTitle.music}
+        size={iconSize.folder}
+      />
+      <DraggableIcon
+        className="icon-blog"
+        path="https://blog.divdivdiv.com"
+        type="folder"
+        title={iconTitle.blog}
         size={iconSize.folder}
       />
       <DraggableIcon
@@ -159,7 +159,7 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
         title={iconTitle.cinephile}
         size={iconSize.folder}
       />
-      <DraggableIcon
+      {/* <DraggableIcon
         className="icon-fruits"
         path="https://fruits.divdivdiv.com"
         type="folder"
@@ -172,7 +172,7 @@ const DraggableIcons = ({ setImgSrc, setImgAlt, setShowImage, language }: IconsP
         type="folder"
         title={iconTitle.words}
         size={iconSize.folder}
-      />
+      /> */}
       <DraggableIcon
         className="icon-cat"
         path="cat"

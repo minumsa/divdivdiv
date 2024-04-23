@@ -80,6 +80,17 @@ export const readme = {
     },
     emoji: "⚙️",
   },
+  music: {
+    title: {
+      ko: "카버차트",
+      en: "Carver Chart",
+    },
+    text: {
+      ko: "좋아하는 음반을 소개하는 페이지입니다. 스포티파이에서 제공하는 API를 활용해 음반 정보, 리뷰를 함께 업로드합니다. 관리자 페이지에서 암호를 입력하면 글을 쓰거나 수정, 삭제할 수 있습니다. 관련 데이터는 모두 MongoDB에 저장했습니다.",
+      en: "This is a page where you can introduce your favorite albums. It utilizes the API provided by Spotify to upload album information and short descriptions. On the admin page, you can enter a password to write, edit, or delete posts. All related data is stored in MongoDB.",
+    },
+    emoji: "🎶",
+  },
   blog: {
     title: {
       en: "Blog",
@@ -90,17 +101,6 @@ export const readme = {
       en: "This page was created to provide a space for writing and posting freely. It features a layout similar to a book, focusing more on text than images, despite being a web page.",
     },
     emoji: "✍️",
-  },
-  music: {
-    title: {
-      ko: "카버차트",
-      en: "Carver Chart",
-    },
-    text: {
-      ko: "좋아하는 음반을 소개하는 페이지입니다. 스포티파이에서 제공하는 API를 활용해 음반 정보, 짧은 글을 함께 업로드합니다. 관리자 페이지에서 암호를 입력하면 글을 쓰거나 수정, 삭제할 수 있습니다. 관련 데이터는 모두 MongoDB에 저장했습니다.",
-      en: "This is a page where you can introduce your favorite albums. It utilizes the API provided by Spotify to upload album information and short descriptions. On the admin page, you can enter a password to write, edit, or delete posts. All related data is stored in MongoDB.",
-    },
-    emoji: "🎶",
   },
   barbershop: {
     title: {
@@ -124,28 +124,28 @@ export const readme = {
     },
     emoji: "🍿",
   },
-  fruits: {
-    title: {
-      ko: "과일 생성기",
-      en: "Fruits",
-    },
-    text: {
-      ko: "페이지 상단에서 과일이 무한하게 생성되며 하강합니다. 특정 과일을 클릭하면 해당 과일에 대한 재밌고 유용한 정보가 화면에 나타납니다.",
-      en: "Fruits are continuously generated from the top of the page and descend. When you click on your favorite fruit, interesting or useful information about that fruit appears on the screen.",
-    },
-    emoji: "🍇",
-  },
-  words: {
-    title: {
-      ko: "직유법",
-      en: "Sentences",
-    },
-    text: {
-      ko: "데이터베이스에 있는 약 100개의 단어들이 경우의 수에 따라 랜덤하게 조합되며 화면에 다양한 직유법을 만들어냅니다. 우측 상단의 카메라 버튼을 클릭하면 현재 화면이 클립보드에 저장됩니다.",
-      en: "Around 100 words from the database are randomly combined based on permutations to generate various puns on the screen. Click the camera button in the upper right corner to save the current screen to the clipboard.",
-    },
-    emoji: "🌈",
-  },
+  // fruits: {
+  //   title: {
+  //     ko: "과일 생성기",
+  //     en: "Fruits",
+  //   },
+  //   text: {
+  //     ko: "페이지 상단에서 과일이 무한하게 생성되며 하강합니다. 특정 과일을 클릭하면 해당 과일에 대한 재밌고 유용한 정보가 화면에 나타납니다.",
+  //     en: "Fruits are continuously generated from the top of the page and descend. When you click on your favorite fruit, interesting or useful information about that fruit appears on the screen.",
+  //   },
+  //   emoji: "🍇",
+  // },
+  // words: {
+  //   title: {
+  //     ko: "직유법",
+  //     en: "Sentences",
+  //   },
+  //   text: {
+  //     ko: "데이터베이스에 있는 약 100개의 단어들이 경우의 수에 따라 랜덤하게 조합되며 화면에 다양한 직유법을 만들어냅니다. 우측 상단의 카메라 버튼을 클릭하면 현재 화면이 클립보드에 저장됩니다.",
+  //     en: "Around 100 words from the database are randomly combined based on permutations to generate various puns on the screen. Click the camera button in the upper right corner to save the current screen to the clipboard.",
+  //   },
+  //   emoji: "🌈",
+  // },
 };
 
 export const iconTitle = {
@@ -187,7 +187,7 @@ export const iconTitle = {
   },
   readme: {
     en: "README.txt",
-    ko: "프로젝트.txt",
+    ko: "README.txt",
   },
 };
 

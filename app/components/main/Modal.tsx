@@ -62,8 +62,8 @@ export const ImageModal = () => {
     };
   }, []);
 
-  let height: number = windowHeight / 1.2;
-  let width: number = windowHeight * 0.65;
+  let height: number = windowHeight / 1.4;
+  let width: number = windowHeight * 0.5;
 
   if (isMobile) {
     width = windowWidth * 0.9;
@@ -106,12 +106,12 @@ export const ImageModal = () => {
     >
       <div className={styles["modal"]} style={{ width: width, height: height }}>
         <div className={styles["last-updated"]}>{lastUpdated.text[language]}</div>
-        <READMEItem path="https://blog.divdivdiv.com" icon={blog} />
         <READMEItem path="https://music.divdivdiv.com" icon={music} />
+        <READMEItem path="https://blog.divdivdiv.com" icon={blog} />
         <READMEItem path="https://barbershop.divdivdiv.com" icon={barbershop} />
         <READMEItem path="https://cinephile.divdivdiv.com" icon={cinephile} />
-        <READMEItem path="https://fruits.divdivdiv.com" icon={fruits} />
-        <READMEItem path="https://words.divdivdiv.com" icon={words} />
+        {/* <READMEItem path="https://fruits.divdivdiv.com" icon={fruits} />
+        <READMEItem path="https://words.divdivdiv.com" icon={words} /> */}
         <READMEItem path="/" icon={techStack} />
       </div>
     </div>
