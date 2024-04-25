@@ -21,7 +21,7 @@ export const ImageModal = () => {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const blurHash = useAtomValue(blurHashAtom);
   const isREADMEItem = imgAlt === "readme";
-  const { lastUpdated, blog, music, barbershop, cinephile, fruits, words, techStack } = readme;
+  const { lastUpdated, blog, music, barbershop, cinephile, techStack } = readme;
   const modalRef = useRef<HTMLDivElement>(null);
   const setShowImage = useSetAtom(showImageAtom);
 
