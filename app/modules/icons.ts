@@ -65,8 +65,8 @@ export const fortune = {
 export const readme = {
   lastUpdated: {
     text: {
-      ko: "최근 업데이트: 2023년 11월 9일",
-      en: "Last Updated: 2023-11-9",
+      ko: "최근 업데이트: 2024년 4월 25일",
+      en: "Last Updated: 2024-04-25",
     },
   },
   techStack: {

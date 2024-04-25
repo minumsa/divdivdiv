@@ -62,8 +62,10 @@ export const ImageModal = () => {
     };
   }, []);
 
-  let height: number = windowHeight / 1.4;
-  let width: number = windowHeight * 0.5;
+  // let height: number = windowHeight / 1.4;
+  // let width: number = windowHeight * 0.5;
+  let height: number = windowHeight / 1.2;
+  let width: number = windowHeight * 0.65;
 
   if (isMobile) {
     width = windowWidth * 0.9;
