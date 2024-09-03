@@ -20,12 +20,12 @@ export default function About() {
 
   const about: About = {
     job: {
-      en: "I am working as a web developer in Seoul. 👨‍💻",
-      ko: "서울에서 웹 개발자로 활동하고 있습니다. 👨‍💻",
+      en: "I am a junior web frontend developer who loves challenges. 👨‍💻",
+      ko: "도전을 좋아하는 주니어 웹 프론트엔드 개발자입니다. 👨‍💻",
     },
     interest: {
-      en: "I am interested in creating clean interfaces and interesting web pages. 💥",
-      ko: "간결한 인터페이스와 흥미로운 페이지를 만드는 데 관심이 있습니다. 💥",
+      en: "I am interested in creating clean interfaces and interesting web pages. 🎨",
+      ko: "간결하고 흥미로운 UI/UX 디자인에 관심이 많습니다.  🎨",
     },
     ai: {
       en: "I am also exploring ways to survive in the age of AI. 🤖",
